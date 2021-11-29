@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body,
+            html {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            #sketch-container {
+                border: 1px solid black;
+            }
+
+            #sketch-container > canvas {
+                width: 100%;
+                height: 100%;
+            }
+
+            html,
+            body {
+                height: 100%;
+            }
+
+            body,
+            .buttons {
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+
+                /* This centers our sketch horizontally. */
+                justify-content: center;
+
+                /* This centers our sketch vertically. */
+                align-items: center;
+            }
+            .input {
+                background-color: #555555; /* Green */
+                border: none;
+                padding: 4px 8px;
+
+                /* color: white;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                 */
+            }
+
+            #debug-controls {
+                visibility: hidden;
+            }
+        </style>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script> -->
+        <script src="./src/script.js" defer></script>
+    </head>
+
+    <body>
+        <div id="sketch-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="buttons">
+            <div>
+                <button class="input" id="save-canvas">Save</button>
+                <button class="input" id="clear-canvas">Clear</button>
+                <input type="color" id="color-picker" value="#273c75" />
+            </div>
+            <div id="debug-controls">
+                <span>
+                    Brushsize
+                    <input
+                        type="range"
+                        min="0"
+                        max="50"
+                        value="10"
+                        data-name="brushSize"
+                    />
+                    <span id="brushSize-value"></span>
+                </span>
+                <span>
+                    Friction
+                    <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        value="0.6"
+                        step="0.01"
+                        data-name="friction"
+                    />
+                    <span id="friction-value"></span>
+                </span>
+                <span>
+                    Spring Force
+                    <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        value="0.1"
+                        step="0.01"
+                        data-name="spring"
+                    />
+                    <span id="spring-value"></span>
+                </span>
+                <span>
+                    Segment Count
+                    <input
+                        type="range"
+                        min="0"
+                        max="200"
+                        value="100"
+                        data-name="splitNum"
+                    />
+                    <span id="splitNum-value"></span>
+                </span>
+                <span>
+                    Minimum Linewidth
+                    <input
+                        type="range"
+                        min="0"
+                        max="10"
+                        value="1"
+                        step="0.1"
+                        data-name="minWidth"
+                    />
+                    <span id="minWidth-value"></span>
+                </span>
+            </div>
+        </div>
+    </body>
+</html>
